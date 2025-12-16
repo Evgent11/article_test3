@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Создать новую статью</h2>
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="id_title">Заголовок:</label>
+            {{ form.title }}
+        </div>
+        
+        <div class="form-group">
+            <label for="id_content">Содержание:</label>
+            {{ form.content }}
+        </div>
+        
+        <div class="actions">
+            <button type="submit" class="btn">Создать статью</button>
+            <a href="{% url 'article_app:article_list' %}" class="btn btn-secondary">Отмена</a>
+        </div>
+    </form>
+{% endblock %}
